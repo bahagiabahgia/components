@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="radio-button.css">
+    <link rel="stylesheet" href="checkbox.css">
+</head>
+<body>
+    <div class="radio-toolbar">
+        <input type="radio" id="radioApple" name="radioFruit" value="apple" checked>
+        <label for="radioApple">Apple</label>
+    
+        <input type="radio" id="radioBanana" name="radioFruit" value="banana">
+        <label for="radioBanana">Banana</label>
+    
+        <input type="radio" id="radioOrange" name="radioFruit" value="orange">
+        <label for="radioOrange">Orange</label> 
+    </div>
+    <p>&nbsp;</p>
+
+    <h1>Custom Checkboxes</h1>
+    <div id="checkbox">
+        <label class="container">One
+            <input type="checkbox" name="number" value="1" checked="checked">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Two
+            <input type="checkbox" name="number" value="2">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Three
+            <input type="checkbox" name="number" value="3">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Four
+            <input type="checkbox" name="number" value="4">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function(){
+            // Radio Button on Change
+            $(".radio-toolbar").on('change', function(){
+                let val = $("input[name='radioFruit']:checked").val();
+                console.log(val);
+            });
+            
+            // Checkbox on Change
+            $("input[name='number']").on('change', function(){
+                console.log($("input[name='number']:checked").serializeArray());
+            });
+
+
+        });
+
+    </script>
+</body>
+</html>
